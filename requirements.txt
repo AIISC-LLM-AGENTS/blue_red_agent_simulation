@@ -1,0 +1,6 @@
+groq
+dotenv
+requests
+pandas
+llama-index
+llama-index-llms-groq
