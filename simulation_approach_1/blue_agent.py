@@ -22,7 +22,7 @@ class Blue_Agent:
     self.red_contact = 0
     self.blue_contact = 0
     self.averted = 0
-
+    self.not_everted = 0
 
   def blue_meets_noone(self, iteration):
     """
@@ -145,7 +145,7 @@ class Blue_Agent:
     Blue_b stays put (for now).
     """
     print("Hit")
-    prompt = blue_meets_blue(blue_agent_1.original_source, blue_agent_1.original_destination, blue_agent_1.current_place, blue_agent_1.previous_CoT, blue_agent_2.original_source, blue_agent_2.original_destination, blue_agent_2.current_place, blue_agent_2.previous_CoT)
+    prompt = blue_meets_blue(blue_agent_1.original_source, blue_agent_1.original_destination, blue_agent_1.current_place, blue_agent_1.previous_CoT, blue_agent_2.original_source, blue_agent_2.original_destination, blue_agent_2.current_place, "")
     next_place = ""
     CoT = ""
     blue_response_to_blue = "None"
@@ -202,7 +202,7 @@ class Blue_Agent:
     Note the agents have switched.
     """
     print("Hit")
-    prompt = blue_meets_blue(blue_agent_2.original_source, blue_agent_2.original_destination, blue_agent_2.current_place, blue_agent_2.previous_CoT, blue_agent_1.original_source, blue_agent_1.original_destination, blue_agent_1.current_place, blue_agent_1.previous_CoT)
+    prompt = blue_meets_blue(blue_agent_2.original_source, blue_agent_2.original_destination, blue_agent_2.current_place, blue_agent_2.previous_CoT, blue_agent_1.original_source, blue_agent_1.original_destination, blue_agent_1.current_place, metadata.BLUE_RESPONSE_TO_BLUE[-1])
     next_place = ""
     CoT = ""
     blue_response_to_blue = "None"
