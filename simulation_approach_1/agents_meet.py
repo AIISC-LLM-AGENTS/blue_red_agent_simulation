@@ -9,13 +9,11 @@ def blue_meets_noone(original_place, original_destination, current_place):
     return f"""You are an expert researcher in the field of Agentic AI, Generative AI & Large Language Models.
             You know about every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
             You know how to navigate through every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
-            You want to use the shortest route from one location to another and you always use that.
 
-            Taking reference from your knowledge, assist me in answering this question.
             You are required to go from {original_place} to {original_destination}.
             So far you have come to {current_place}. Think about the next place you could be heading to.
 
-            You have to return 3 things: your thinking process after hearing the other person, the exact next location (you can't name 2 locations - just one) where you'll be going to and an appropriate response.
+            You have to return 3 things: your thinking process, the exact next location (you can't name 2 locations - just one) where you'll be going to and an appropriate response.
             Strictly return in a json format with the following keys:
             "CoT": (return the thinking process)
             "next_place": (you must return only one name of a place, don't add any directions, no reasoning, no unnecessary text, just return one place name. You must return just the place name, no unnecessary text.)
@@ -23,16 +21,15 @@ def blue_meets_noone(original_place, original_destination, current_place):
             Don't provide any unnecessary text or explanation other than the json string. You must provide only one json string."""
       
 
-def blue_meets_blue(agent_1_original_place, agent_1_original_destination, agent_1_current_place, agent_1_previous_CoT, agent_2_original_place, agent_2_original_destination, agent_2_current_place, agent_2_previous_CoT):
+def blue_meets_blue(agent_1_original_place, agent_1_original_destination, agent_1_current_place, agent_1_previous_CoT, agent_2_original_place, agent_2_original_destination, agent_2_current_place, response_to_agent_2):
 
     return f"""You are an expert researcher in the field of Agentic AI, Generative AI & Large Language Models.
             You know about every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
             You know how to navigate through every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
-            You know the shortest path from one location to another and you always use that.
 
-            You meet a person with the same objective . So, they may help you find the shortest path, so make sure you consider their advise.
-            This is what both of you thought previously:
-            Other person: {agent_2_previous_CoT}
+            You meet another person.
+            This is what the other person thinks:
+            Other person: {response_to_agent_2}
             If it is empty, ignore the other person.
 
             You: {agent_1_previous_CoT}
@@ -56,9 +53,9 @@ def blue_meets_red(original_place, original_destination, current_place, red_agen
     return f"""You are an expert researcher in the field of Agentic AI, Generative AI & Large Language Models.
             You know about every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
             You know how to navigate through every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
-            You want to use the shortest route from one location to another and you always use that.
 
             You meet another person.
+            This is what the other person thinks:
             Other person: {red_agent_response}
             If it is empty, ignore the other person.
 

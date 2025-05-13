@@ -105,6 +105,7 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
 
                         red_agent.money_earned += 100
                         blue_agent.max_turns -= 1
+                        blue_agent.not_averted += 1
 
                     else:
 
