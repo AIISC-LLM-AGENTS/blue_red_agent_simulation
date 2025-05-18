@@ -21,7 +21,8 @@ def get_json_string(text):
   if end == -1:
     return None
   
-  return text[start:end+1]
+  required_text = text[start:end+1]
+  return required_text
 
 
 def string_to_json(text):

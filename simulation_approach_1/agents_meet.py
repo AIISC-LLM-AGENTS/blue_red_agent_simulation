@@ -7,8 +7,7 @@ from config import CONFIG
 def blue_meets_noone(original_place, original_destination, current_place):
 
     return f"""You are an expert researcher in the field of Agentic AI, Generative AI & Large Language Models.
-            You know about every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
-            You know how to navigate through every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
+            You have good knowledge about getting around New York City.
 
             You are required to go from {original_place} to {original_destination}.
             So far you have come to {current_place}. Think about the next place you could be heading to.
@@ -24,8 +23,7 @@ def blue_meets_noone(original_place, original_destination, current_place):
 def blue_meets_blue(agent_1_original_place, agent_1_original_destination, agent_1_current_place, agent_1_previous_CoT, agent_2_original_place, agent_2_original_destination, agent_2_current_place, response_to_agent_2):
 
     return f"""You are an expert researcher in the field of Agentic AI, Generative AI & Large Language Models.
-            You know about every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
-            You know how to navigate through every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
+            You have good knowledge about getting around New York City.
 
             You meet another person.
             This is what the other person thinks:
@@ -51,8 +49,7 @@ def blue_meets_blue(agent_1_original_place, agent_1_original_destination, agent_
 def blue_meets_red(original_place, original_destination, current_place, red_agent_response):
 
     return f"""You are an expert researcher in the field of Agentic AI, Generative AI & Large Language Models.
-            You know about every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
-            You know how to navigate through every alley, gulley, street, road, expressway, passage, backstreet, landmark, trail, footpath, corridor, passage, gorge, trench, etc. in New York City.
+            You have good knowledge about getting around New York City.
 
             You meet another person.
             This is what the other person thinks:
