@@ -8,6 +8,16 @@ from google_map_distance_api import find_blue_agents_max_turns
 from agents_meet import blue_meets_noone, red_meets_noone, red_meets_blue, red_meets_red, blue_meets_red, blue_meets_blue
 from get_model_response import llm_inference, string_to_json
 
+def change_string(place, CoT, response):
+  """
+  This function is used to change the string to lower case
+  """
+  place = place.lower().strip()
+  CoT = CoT.lower().strip()
+  response = response.lower().strip()
+
+  return place, CoT, response
+
 class Red_Agent:
 
   def __init__(self, agent_name, agent_number, original_source):
@@ -50,6 +60,8 @@ class Red_Agent:
       else:
         next_place = str(response_json["next_place"])
         CoT = str(response_json["CoT"])
+        
+    next_place, CoT, red_response = change_string(next_place, CoT, red_response)
 
     self.previous_CoT = CoT
     metadata.ITERATION.append(iteration)
@@ -107,6 +119,7 @@ class Red_Agent:
         CoT = str(response_json["CoT"])
         red_response_to_blue = str(response_json["response_to_other_agent"])
 
+    next_place, CoT, red_response_to_blue = change_string(next_place, CoT, red_response_to_blue)
 
     self.previous_CoT = CoT
     metadata.ITERATION.append(iteration)
@@ -163,6 +176,7 @@ class Red_Agent:
         CoT = str(response_json["CoT"])
         red_response_to_red = str(response_json["response_to_other_agent"])
 
+    next_place, CoT, red_response_to_red = change_string(next_place, CoT, red_response_to_red)
 
     self.previous_CoT = CoT
     metadata.ITERATION.append(iteration)
@@ -219,6 +233,8 @@ class Red_Agent:
           next_place = str(response_json["next_place"])
           CoT = str(response_json["CoT"])
           red_response_to_red = str(response_json["response_to_other_agent"])
+          
+      next_place, CoT, red_response_to_red = change_string(next_place, CoT, red_response_to_red)
 
       self.previous_CoT = CoT
       metadata.ITERATION.append(iteration)

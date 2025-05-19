@@ -6,6 +6,7 @@ import metadata
 from config import CONFIG
 from blue_agent import Blue_Agent
 from red_agent import Red_Agent
+from locations import NYC_LOCATIONS, BILLBOARD_LOCATIONS
 from utils import check_blue_contact_with_red_agent, check_blue_contact_with_blue_agent
 from utils import check_red_contact_with_blue_agent, check_red_contact_with_red_agent
 from utils import initialize_blue_agents, initialize_red_agents
@@ -101,7 +102,7 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
                     blue_CoT, blue_next_place, blue_response_to_red = blue_agent.blue_agent_meets_red_agent(red_response_to_blue, iteration)
                     blue_agent.current_place = blue_next_place
 
-                    if blue_next_place in CONFIG["BILLBOARD_LOCATIONS"]:
+                    if blue_next_place in BILLBOARD_LOCATIONS:
 
                         red_agent.money_earned += 100
                         blue_agent.max_turns -= 1
