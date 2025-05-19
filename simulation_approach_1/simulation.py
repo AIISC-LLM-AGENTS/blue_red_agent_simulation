@@ -95,11 +95,11 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
                     print("Blue meets with Red")
 
                     ## Red camouflages its ploy ;-)
-                    red_CoT, red_next_place, red_response_to_blue = red_agent.blue_agent_meets_red_agent(blue_agent, iteration)
+                    red_next_place, red_CoT, red_response_to_blue = red_agent.blue_agent_meets_red_agent(blue_agent, iteration)
                     red_agent.current_place = red_next_place
 
                     ## Upto Blue to take heed :'(
-                    blue_CoT, blue_next_place, blue_response_to_red = blue_agent.blue_agent_meets_red_agent(red_response_to_blue, iteration)
+                    blue_next_place, blue_CoT, blue_response_to_red = blue_agent.blue_agent_meets_red_agent(red_response_to_blue, iteration)
                     blue_agent.current_place = blue_next_place
 
                     if blue_next_place in BILLBOARD_LOCATIONS:
@@ -124,12 +124,12 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
                     ## Blue meets a Blue agent - rejoices (✿◡‿◡)
                     print("Blue meets with Blue")
                     ## First Blue agent reacts first
-                    blue_CoT, blue_next_place, blue_response_to_blue = blue_agent.blue_agent_meets_blue_agent_first_agent(blue_agent, blue_agent_2, iteration)
+                    blue_next_place, blue_CoT, blue_response_to_blue = blue_agent.blue_agent_meets_blue_agent_first_agent(blue_agent, blue_agent_2, iteration)
                     blue_agent.current_place = blue_next_place
                     blue_agent.previous_CoT = blue_CoT
 
                     ## Second Blue agent reacts
-                    blue_CoT, blue_next_place, blue_response_to_blue = blue_agent_2.blue_agent_meets_blue_agent_second_agent(blue_agent, blue_agent_2, iteration)
+                    blue_next_place, blue_CoT, blue_response_to_blue = blue_agent_2.blue_agent_meets_blue_agent_second_agent(blue_agent, blue_agent_2, iteration)
                     blue_agent_2.current_place = blue_next_place
                     blue_agent_2.previous_CoT = blue_CoT
 
@@ -141,7 +141,7 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
 
                 ## Blue meets noone
                 print("Blue meets noone")
-                blue_CoT, blue_next_place, blue_response_to_red = blue_agent.blue_meets_noone(iteration)
+                blue_next_place, blue_CoT, blue_response_to_red = blue_agent.blue_meets_noone(iteration)
 
                 blue_agent.max_turns -= 1
 
@@ -178,10 +178,10 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
                 ## Red gets ready to detour Blue ^_-
                     print("Red meets with Blue")
                     ## Red camouflages it's ploy
-                    red_CoT, red_next_place, red_response_to_blue = red_agent.blue_agent_meets_red_agent(blue_agent, iteration)
+                    red_next_place, red_CoT, red_response_to_blue = red_agent.blue_agent_meets_red_agent(blue_agent, iteration)
 
                     ## Upto Blue to take heed ~_~
-                    blue_CoT, blue_next_place, blue_response_to_red = blue_agent.blue_agent_meets_red_agent(red_response_to_blue, iteration)
+                    blue_next_place, blue_CoT, blue_response_to_red = blue_agent.blue_agent_meets_red_agent(red_response_to_blue, iteration)
 
                     if blue_next_place in CONFIG["BILLBOARD_LOCATIONS"]:
 
@@ -203,17 +203,17 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
                     ## Red meets a Red Agent - plots (* ￣︿￣)
                     print("Red meets with Red")
                     ## First Red Agent reacts first
-                    red_CoT, red_next_place, red_response_to_red = red_agent.red_agent_meets_red_agent_first_agent(red_agent, red_agent_2, iteration)
+                    red_next_place, red_CoT, red_response_to_red = red_agent.red_agent_meets_red_agent_first_agent(red_agent, red_agent_2, iteration)
 
                     ## Second Red Agent reacts
-                    red_CoT, red_next_place, red_response_to_red = red_agent_2.red_agent_meets_red_agent_second_agent(red_agent, red_agent_2, iteration)
+                    red_next_place, red_CoT, red_response_to_red = red_agent_2.red_agent_meets_red_agent_second_agent(red_agent, red_agent_2, iteration)
 
                     continue
 
 
                 ## Red meets noone
                 print("Red meets noone")
-                red_CoT, red_next_place, red_response_to_red = red_agent.red_meets_noone(iteration)
+                red_next_place, red_CoT, red_response_to_red = red_agent.red_meets_noone(iteration)
 
 
   return BLUE_AGENTS, RED_AGENTS

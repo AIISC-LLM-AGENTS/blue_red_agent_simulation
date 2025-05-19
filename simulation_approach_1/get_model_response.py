@@ -48,13 +48,19 @@ def validate_response(text):
 
   text = text[start:end+1]
 
-  data = json.loads(text)
+  try:
+    data = json.loads(text)
+  except json.JSONDecodeError as e:
+    print(f"JSON decoding error: {e}")
+    return False
 
   if all(key in data for key in ["CoT", "next_place", "response_to_other_agent"]):
     print("Validated!")
     return True
   else:
+    print("Validation failed: Required keys are missing.")
     return False
+    
 
 
 def llm_inference(prompt):
