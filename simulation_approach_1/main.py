@@ -58,7 +58,7 @@ def main(args):
     if not os.path.exists(directory_path):
         os.makedirs(directory_path)
         
-    file_name = f"dataset_llama_4_scout.csv"
+    file_name = f"dataset_{model_name}.csv"
     file_path = os.path.join(directory_path, file_name)
     agent_df.to_csv(file_path, index=False)
         
