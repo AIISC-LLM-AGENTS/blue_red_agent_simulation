@@ -183,7 +183,7 @@ def simulate(BLUE_AGENTS, RED_AGENTS, num_blue_agents: int, num_red_agents: int)
                     ## Upto Blue to take heed ~_~
                     blue_next_place, blue_CoT, blue_response_to_red = blue_agent.blue_agent_meets_red_agent(red_response_to_blue, iteration)
 
-                    if blue_next_place in CONFIG["BILLBOARD_LOCATIONS"]:
+                    if blue_next_place in BILLBOARD_LOCATIONS:
 
                         red_agent.money_earned += 100
                         blue_agent.max_turns -= 1

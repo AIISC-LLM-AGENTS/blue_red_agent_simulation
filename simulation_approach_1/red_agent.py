@@ -98,7 +98,7 @@ class Red_Agent:
     Blue arrives, so red addresses blue and moves.
     """
     print("Hit")
-    prompt = red_meets_blue(blue_agent.original_source, blue_agent.original_destination, blue_agent.current_place, self.current_place)
+    prompt = red_meets_blue(blue_agent.original_source, blue_agent.original_destination, blue_agent.current_place, self.current_place, self.money_earned)
     next_place = ""
     CoT = ""
     red_response_to_blue = "None"
